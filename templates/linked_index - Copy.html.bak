@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="static/multiselect-dropdown.js"></script>
+	
+	<style>
+	.required-field::before {
+	  content: "*";
+	  color: red;
+	} 
+    .div-1 {
+        background-color: white;
+        width: 300px;
+    }
+	 #first {
+        margin-left: 25%;
+		margin-right: 25%;
+		background-color: lightblue;
+		margin-top: 2%;
+        }
+	.logo {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+    </style>
+	<style type="text/css">
+		select{
+			width:20em;
+			}
+	</style>
+	  <meta charset="utf-8">
+	<title>Automated job search - LinkedIn</title>
+  </head>
+  <!-- <body style="background-image:url('/static/job_icon.jpg');background-repeat:no-repeat;background-size:auto;"> -->
+  <body>
+	<!--<img scr="bg.jpg" align = "right" width="200" height="100"/>-->
+	<!--<img src="{{ url_for('static', filename='logo.png') }}" align = "right" width="200" height="100">-->
+	
+	<img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" width="200" height="100">
+	<div align="right" style="margin-top: 10%;">Example file content:<br>
+	<embed src="domain.txt" type="text/html"></embed>
+	</div>
+	
+		<div id="first" >
+      		<form action="{{ url_for('run_python') }}" method="post" enctype="multipart/form-data" id="myForm2">
+
+	    <!-- <form action="upload" method="post" enctype="multipart/form-data"> -->
+			  <div style="padding: 20px 20px 20px 20px;">
+				<h1 style="color:#074d87;">Automated job search - LinkedIn</h1>
+				<hr>
+				<br>
+				  <h5><div class="required-field">Upload file containing keywords:</div></h5>
+				<input type="file" id="fileinput" class="form-control" multiple="" name="file" style="width:50%;" required>
+				  <br><br>
+				
+				
+				<h5><div class="required-field">Select regions:</div></h5>
+					<select  name="select" multiple multiselect-search="true" multiselect-max-items="10" style="width:50%;" required>
+						<option value="australia">Australia</option><option value="austria">Austria</option>
+						<option value="belgium">Belgium</option><option value="canada">Canada</option>
+						<option value="denmark">Denmark</option><option value="england">England</option>
+						<option value="europe">Europe</option><option value="finland">Finland</option>
+						<option value="germany">Germany</option><option value="ireland">Ireland</option>
+						<option value="italy">Italy</option><option value="luxembourg">Luxembourg</option>
+						<option value="netherland">Netherland</option><option value="new zealand">New Zealand</option>
+						<option value="norway">Norway</option><option value="scotland">Scotland</option>
+						<option value="sweden">Sweden</option><option value="switzerland">Switzerland</option>
+						<option value="United Kingdom">UK</option><option value="USA">USA</option>
+						<option value="wales">Wales</option>
+					</select>
+				
+				<br><br>
+				<div style="align-items:center;" class="container01" >
+				<div style="display:none; align:centre; padding:50px;" id = "myDIV"></div>
+				<div style="display:none;" id = "mytext">Processing...</div>
+				<br>
+				<h5><div class="required-field">Select duration:</div></h5>
+				<div class="div-1" style="padding-left:0%; width:50%;">
+				<input id="t24hradio" type="radio" name="dur" value="24 hrs" required> Past 24 hours<br>
+				<input id="t7dradio" type="radio" name="dur" value="past week" required> Past Week<br>
+				<input id="t30dradio" type="radio" name="dur" value="past month" required> Past Month<br>
+				</div>
+				<br><br>
+				<h5><div class="required-field">Enter the email-id:</div></h5>
+				<input type="text" name="mail_id" placeholder="Enter your Mail Id" style="width:50%;" required>
+				<br><br>
+					<div>
+						<input type="submit" value="Submit"> <a href = "/run_python"></a></input>
+						<br>
+						 <!-- <button class="popuptext" type="button" name="button">Submit</button> -->
+					</div>
+				<script>
+					// When the user clicks on div, open the popup
+					function myFunction() {
+						fetch('app.py').then(response => response.text())
+						alert("Click 'ok' to confirm. Data will be emailed to you shortly !")
+					}
+				</script>
+				</div>
+			  </div>
+			  <!-- </select> -->
+
+
+
+
+			</form>
+		</div>
+</body>
+</html>

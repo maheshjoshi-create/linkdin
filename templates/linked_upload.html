@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Automated Job Search - LinkedIn</title>
+  </head>
+  <body>
+    <!-- <form action="download" method="get"> -->
+              <div style="padding: 20px 20px 20px 20px;">
+
+                <h1 style="color:#074d87;">Download Files</h1>
+
+                {% for file,name in filenames|zip(names) %}
+                  <li><a href="{{url_for('download_file', file_path=file)}}">{{name}}</a></li>
+                {% endfor %}
+              </div>
+              <div style="padding-left:250px;">
+                <h1 style="color:#074d87;">OR</h1>
+              </div>
+              <h3 style="color:#5b6473; font-style:italic;">The Excel has been mailed</h3>
+
+      <!-- </form> -->
+    </body>
+</html>

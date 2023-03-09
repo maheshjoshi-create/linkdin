@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="multiselect-dropdown.js"></script>
+	<!-- <style>
+	body{
+	  background-image:url('bg.jpg');
+	  }
+	</style> -->
+	<style>
+    .div-1 {
+        background-color: #EBEBEB;
+        width: 350px;
+    }
+    </style>
+	<style type="text/css">
+		select{
+			width:20em;
+			}
+	</style>
+	  <meta charset="utf-8">
+	<title>Automated job search - LinkedIn</title>
+	
+  </head>
+  <!-- <body style="background-image:url('/static/job_icon.jpg');background-repeat:no-repeat;background-size:auto;"> -->
+  <body>
+	<form action="upload" method="post" enctype="multipart/form-data">
+			  <div style="padding: 20px 20px 20px 20px;">
+				<h1 style="color:#074d87;">Automated job search - LinkedIn</h1>
+				<hr>
+							<h4 style="color:#404040">Upload file of keywords</h4>
+				<input type="file" class="form-control" multiple="" name="file[]" style="width:35%;">
+				  <!-- <select name="loc" multiple> -->
+				  <br><br>
+				<h4 style="color:#404040">Select Regions</h4>
+				<div style="padding-left:4%">
+					<select  name="select" multiple multiselect-search="true" multiselect-max-items="10">
+						<option>Australia</option><option>Austria</option><option>Belgium</option>
+						<option>Canada</option><option>Denmark</option><option>England UK</option><option>Europe</option>
+						<option>Finland</option><option>Germany</option><option>Ireland</option><option>Italy</option>
+						<option>Luxembourg</option><option>Netherlands</option><option>New Zealand</option>
+						<option>North America</option><option>Northern Territory</option><option>Norway</option>
+						<option>Queensland</option><option>Scotland</option><option>South Australia</option>
+						<option>Sweden</option><option>Switzerland</option><option>Tasmania</option>
+						<option>UK</option><option>USA</option><option>Victoria</option>
+						<option>Wales & Northern Ireland</option><option>Western Australia</option>
+					</select>
+				</div>
+				<br><br>
+				<div style="align-items:center;" class="container01" >
+				<div style="display:none; align:centre; padding:50px;" id = "myDIV"></div>
+				<div style="display:none;" id = "mytext">Processing...</div>
+				<h4 style="color:#404040">Select Duration</h4>
+				<div class="div-1" style="padding-left:5%">
+				<input type="radio" name="dur" value="0"> All time<br>
+				<input type="radio" name="dur" value="1"> Past 24 hours<br>
+				<input type="radio" name="dur" value="2"> Past Week<br>
+				<input type="radio" name="dur" value="3"> Past Month<br>
+				</div>
+				<br><br>
+				<h4 style="color:#404040">Enter the email id to send the data</h4>
+				<input type="text" name="mail_id" placeholder="Enter your Mail Id" width="30%">
+				<br><br>
+					<div>
+						<button class="popuptext" onclick = "myFunction()" type="Submit" name="button">Submit</button>
+					</div>
+				<script>
+					// When the user clicks on div, open the popup
+					function myFunction() {
+					      alert("Click 'ok' to confirm. Data will be emailed to you shortly !");
+					}
+				</script>
+				
+			</div>
+			  </div>
+			  <!-- </select> -->
+
+
+
+
+			</form>
+  </body>
+</html>
